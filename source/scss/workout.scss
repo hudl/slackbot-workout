@@ -213,6 +213,19 @@ $background-color: $ui-blue-100;
 }
 
 
+// Icon
+// --------------------------------------------
+.wrk-icon {
+  fill: $ui-gray-20;
+
+  &--down {
+    position: relative;
+    top: 4px;
+  }
+}
+
+
+
 // Video
 // --------------------------------------------
 .wrk-video {
