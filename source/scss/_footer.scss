@@ -1,0 +1,18 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Footer
+//
+// --------------------------------------------
+// --------------------------------------------
+
+footer {
+  @extend %background;
+  padding: $spacer-large;
+}
+
+.footer__h {
+  font-weight: $font-weight-heavy;
+  font-family: $font-display;
+  color: $ui-blue-60;
+}
