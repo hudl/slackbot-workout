@@ -3,14 +3,16 @@
   "channelName": "",
   "channelId": "",
   "botUserId": "",
+  "defaultSnoozeLength": 30,
 
   "officeHours": {
-    "on": false,
+    "on": true,
     "begin": 9,
     "end": 17
    },
 
   "debug": false,
+  "database": false,
 
   "callouts": {
     "timeBetween": {
@@ -49,7 +51,7 @@
       "maxReps": 50,
       "units": "second",
       "tutorial": "Tutorial for wall sits here",
-      "listenNames": "wall sits;wall sit"
+      "listenNames": "wall sits;wall sit;wallsit;wallsits"
     },
     {
       "id": 3,
@@ -58,7 +60,7 @@
       "maxReps": 30,
       "units": "rep",
       "tutorial": "Tutorial for chair dips here",
-      "listenNames": "chair dips;chair dip"
+      "listenNames": "chair dips;chair dip;chairdip;chairdips"
     },
     {
       "id": 4,
