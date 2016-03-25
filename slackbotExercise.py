@@ -120,8 +120,7 @@ class Reminder:
 '''
 Selects an active user from a list of users
 '''
-def selectUser(bot, exercise, all_employees, previous_winners):
-    active_users = fetchActiveUsers(bot, all_employees)
+def selectUser(bot, exercise, all_employees, previous_winners, active_users):
 
     if len(previous_winners) > 0:
         for previous_winner in previous_winners:
@@ -273,30 +272,34 @@ def assignExercise(bot, exercise, all_employees):
 
     winner_announcement = str(exercise_reps) + " " + str(exercise["units"]) + " " + exercise["name"] + " RIGHT NOW "
 
+    active_users = fetchActiveUsers(bot, all_employees)
+
     winners = []
     # EVERYBODY
-    if random.random() < bot.group_callout_chance:
-        winner_announcement += "@channel!"
-        active_users = fetchActiveUsers(bot, all_employees)
 
-        # only add active users to the exercise list. This will mean if someone is active later and marks :yes: they won't get credit.
-        for user in active_users:
-            user.addExercise(exercise, exercise_reps)
-            winners.append(user)
-    else:
-        for i in range(bot.num_people_per_callout):
-            winners.append(selectUser(bot, exercise, all_employees, winners))
+    if len(active_users) > 2:
 
-        for i in range(bot.num_people_per_callout):
-            winner_announcement += str(winners[i].getUserHandle())
-            if i == bot.num_people_per_callout - 2:
-                winner_announcement += ", and "
-            elif i == bot.num_people_per_callout - 1:
-                winner_announcement += "!"
-            else:
-                winner_announcement += ", "
+        if random.random() < bot.group_callout_chance:
+            winner_announcement += "@channel!"
 
-            winners[i].addExercise(exercise, exercise_reps)
+            # only add active users to the exercise list. This will mean if someone is active later and marks :yes: they won't get credit.
+            for user in active_users:
+                user.addExercise(exercise, exercise_reps)
+                winners.append(user)
+        else:
+            for i in range(bot.num_people_per_callout):
+                winners.append(selectUser(bot, exercise, all_employees, winners, active_users))
+
+            for i in range(bot.num_people_per_callout):
+                winner_announcement += str(winners[i].getUserHandle())
+                if i == bot.num_people_per_callout - 2:
+                    winner_announcement += ", and "
+                elif i == bot.num_people_per_callout - 1:
+                    winner_announcement += "!"
+                else:
+                    winner_announcement += ", "
+
+                winners[i].addExercise(exercise, exercise_reps)
 
     last_message_timestamp = str(datetime.datetime.now())
     # Announce the user
@@ -311,11 +314,15 @@ def assignExercise(bot, exercise, all_employees):
             requests.post("https://slack.com/api/reactions.add?token="+ USER_TOKEN_STRING + "&name=sleeping&channel=" + bot.channel_id + "&timestamp=" + last_message_timestamp +  "&as_user=true")
 
 
-    exercise_obj = Exercises(exercise, exercise_reps, winners, last_message_timestamp)
-    EXERCISES_FOR_DAY.append(exercise_obj)
-    logExercise(bot,winners,exercise["name"],exercise_reps,exercise["units"],exercise_obj.time_assigned)
+        exercise_obj = Exercises(exercise, exercise_reps, winners, last_message_timestamp)
+        EXERCISES_FOR_DAY.append(exercise_obj)
+        logExercise(bot,winners,exercise["name"],exercise_reps,exercise["units"],exercise_obj.time_assigned)
 
-    print winner_announcement
+        print winner_announcement
+
+    else:
+        are_you_scared = "Not enough of you maggots are active! What are you all scared? GET BACK IN HERE!"
+        requests.post(bot.post_message_URL + "&text=" + are_you_scared)
 
 
 def logExercise(bot,winners,exercise,reps,units,timestamp):
@@ -615,6 +622,7 @@ def main(argv):
 
     try:
         while True:
+
             if isOfficeHours(bot):
 
                 # set new day based on the first time we entered office hours
