@@ -302,24 +302,24 @@ def assignExercise(bot, exercise, all_employees):
 
                 winners[i].addExercise(exercise, exercise_reps)
 
-    last_message_timestamp = str(datetime.datetime.now())
-    # Announce the user
-    if not bot.debug:
-        response = requests.post(bot.post_message_URL + "&text=" + winner_announcement)
-        print "assignExercise response: " + response.text
-        parsed_message, isMessageOkay = Http.parseSlackJSON(response)
-        if isMessageOkay:
-            last_message_timestamp = parsed_message["ts"]
-            requests.post("https://slack.com/api/reactions.add?token=" + USER_TOKEN_STRING + "&name=yes&channel=" + bot.channel_id + "&timestamp=" + last_message_timestamp +  "&as_user=true")
-            requests.post("https://slack.com/api/reactions.add?token="+ USER_TOKEN_STRING + "&name=no&channel=" + bot.channel_id + "&timestamp=" + last_message_timestamp +  "&as_user=true")
-            requests.post("https://slack.com/api/reactions.add?token="+ USER_TOKEN_STRING + "&name=sleeping&channel=" + bot.channel_id + "&timestamp=" + last_message_timestamp +  "&as_user=true")
+        last_message_timestamp = str(datetime.datetime.now())
+        # Announce the user
+        if not bot.debug:
+            response = requests.post(bot.post_message_URL + "&text=" + winner_announcement)
+            print "assignExercise response: " + response.text
+            parsed_message, isMessageOkay = Http.parseSlackJSON(response)
+            if isMessageOkay:
+                last_message_timestamp = parsed_message["ts"]
+                requests.post("https://slack.com/api/reactions.add?token=" + USER_TOKEN_STRING + "&name=yes&channel=" + bot.channel_id + "&timestamp=" + last_message_timestamp +  "&as_user=true")
+                requests.post("https://slack.com/api/reactions.add?token="+ USER_TOKEN_STRING + "&name=no&channel=" + bot.channel_id + "&timestamp=" + last_message_timestamp +  "&as_user=true")
+                requests.post("https://slack.com/api/reactions.add?token="+ USER_TOKEN_STRING + "&name=sleeping&channel=" + bot.channel_id + "&timestamp=" + last_message_timestamp +  "&as_user=true")
 
 
-        exercise_obj = Exercises(exercise, exercise_reps, winners, last_message_timestamp)
-        EXERCISES_FOR_DAY.append(exercise_obj)
-        logExercise(bot,winners,exercise["name"],exercise_reps,exercise["units"],exercise_obj.time_assigned)
+            exercise_obj = Exercises(exercise, exercise_reps, winners, last_message_timestamp)
+            EXERCISES_FOR_DAY.append(exercise_obj)
+            logExercise(bot,winners,exercise["name"],exercise_reps,exercise["units"],exercise_obj.time_assigned)
 
-        print winner_announcement
+            print winner_announcement
 
     else:
         are_you_scared = "Not enough of you maggots are active! What are you all scared? GET BACK IN HERE!"
