@@ -601,9 +601,6 @@ def listenForCommands(bot, all_employees):
                 else:
                     prompt_actual_command = "I'm sorry, I can't understand you"
                     requests.post(bot.post_message_URL + "&text=" + prompt_actual_command)
-            else:
-                prompt_actual_command = "I can't understand you! You must have too much crap in your mouth!"
-                requests.post(bot.post_message_URL + "&text=" + prompt_actual_command)
 
 
 def main(argv):
