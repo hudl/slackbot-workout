@@ -278,7 +278,7 @@ def assignExercise(bot, exercise, all_employees):
     winners = []
     # EVERYBODY
 
-    if len(active_users) > 2:
+    if len(active_users) > bot.num_people_per_callout:
 
         if random.random() < bot.group_callout_chance:
             winner_announcement += "@channel!"
