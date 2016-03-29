@@ -2,6 +2,7 @@ import json
 
 def parseSlackJSON(response):
     isMessageOkay = False
+    parsed_message = None
     try:
         if response.ok:
             parsed_message = json.loads(response.text, encoding='utf-8')
