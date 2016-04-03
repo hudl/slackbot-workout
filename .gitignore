@@ -6,8 +6,8 @@ log*.csv_DEBUG
 user_cache.save
 
 .sass-cache
-/node_modules/*
-!/node_modules/hudl-kickoff-css/
+*/node_modules/*
+!*/node_modules/hudl-kickoff-css/
 dist/
 
 

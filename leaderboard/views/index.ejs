@@ -92,65 +92,23 @@
             </thead> <!-- /ko-table__thead -->
 
             <tbody class="ko-table__tbody">
-              <tr class="ko-table__tr">
-                <td class="wrk-table__td wrk-table__td--text">George Washington</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td wrk-table__td--total">25.7%</td>
-              </tr> <!-- /ko-table__tr -->
+                <% fullResults.forEach(function(row) { %>
+                  <tr class="ko-table__tr">
+                    <td class="wrk-table__td wrk-table__td--text"><%= row["username"] %></td>
+                    <td class="wrk-table__td"><%= row["pushups"] %></td>
+                    <td class="wrk-table__td"><%= row["planks"] %></td>
+                    <td class="wrk-table__td"><%= row["wallsits"] %></td>
+                    <td class="wrk-table__td"><%= row["chairdips"] %></td>
+                    <td class="wrk-table__td"><%= row["calfraises"] %></td>
+                    <td class="wrk-table__td"><%= row["jumpingjacks"] %></td>
+                    <td class="wrk-table__td"><%= row["joginplace"] %></td>
+                    <td class="wrk-table__td"><%= row["situps"] %></td>
+                    <td class="wrk-table__td"><%= row["lunges"] %></td>
+                    <td class="wrk-table__td"><%= row["burpees"] %></td>
+                    <td class="wrk-table__td wrk-table__td--total"><%= row["completion_pct"] %></td>
+                  </tr> <!-- /ko-table__tr -->
+                <% }); %>
 
-              <tr class="ko-table__tr">
-                <td class="wrk-table__td wrk-table__td--text">Abraham Lincoln</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td wrk-table__td--total">100%</td>
-              </tr> <!-- /ko-table__tr -->
-
-              <tr class="ko-table__tr">
-                <td class="wrk-table__td wrk-table__td--text">Donald Trump</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td wrk-table__td--total">99.8%</td>
-              </tr> <!-- /ko-table__tr -->
-
-              <tr class="ko-table__tr">
-                <td class="wrk-table__td wrk-table__td--text">Nomar Garciaparra</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td">0</td>
-                <td class="wrk-table__td wrk-table__td--total">00.7%</td>
-              </tr> <!-- /ko-table__tr -->
 
             </tbody> <!-- /ko-table__tbody -->
           </table> <!-- /ko-table -->
