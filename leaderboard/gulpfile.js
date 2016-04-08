@@ -21,12 +21,12 @@ var cssnano = require('cssnano');
 
 // Browsersync
 // -------------------------------------
-gulp.task('browser-sync', function() {
-  browserSync({
-    server : {},
-    ghostMode: false
-  });
-});
+// gulp.task('browser-sync', function() {
+//   browserSync({
+//     server : {},
+//     ghostMode: false
+//   });
+// });
 
 
 
@@ -103,4 +103,4 @@ gulp.task('watch', function(){
 
 // // Default
 // // -------------------------------------
-gulp.task('default', ['sass', 'watch', 'browser-sync']);
+gulp.task('default', ['sass', 'watch' ]);
