@@ -33,10 +33,10 @@
     "debug": "~2.2.0",
     "ejs": "^1.0.0",
     "express": "~4.13.1",
+    "hudl-kickoff-css": "~0.1.0",
     "morgan": "~1.6.1",
+    "pg-promise": "~3.4.2",
     "serve-favicon": "~2.3.0",
-    "hudl-kickoff-css": "0.0.1-prerelease.46",
-    "pg-promise": "~3.4.2"
+    "supervisor": "^0.10.0"
   }
 }
-
