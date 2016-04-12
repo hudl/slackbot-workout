@@ -32,6 +32,7 @@ $bp-grid-50-no-layout:      31.25rem;
 
 $bp-grid-50-has-layout-lg:  40.625rem;
 
+$bp-name-switch:            $bp-grid-1-3-has-layout;
 
 
 
@@ -41,3 +42,8 @@ $th-font-size:              0.625rem;
 $th-height:                 52px;
 
 $td-highlight:              $ui-blue-70;
+
+
+// Border
+// --------------------------------------------
+$bdr-1:                   1px solid $ui-gray-medium;
