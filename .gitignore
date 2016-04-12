@@ -9,6 +9,7 @@ user_cache.save
 */node_modules/*
 !*/node_modules/hudl-kickoff-css/
 dist/
+npm-debug.log
 
 
 .idea/.name
