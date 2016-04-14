@@ -8,7 +8,6 @@ user_cache.save
 .sass-cache
 */node_modules/*
 !*/node_modules/hudl-kickoff-css/
-dist/
 npm-debug.log
 
 
