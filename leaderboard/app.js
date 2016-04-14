@@ -16,7 +16,6 @@ var cn = {
     database: 'slackbotworkout',
 };
 var db = pgp(cn);
-console.log("db: " + db);
 
 // Make our db accessible to our router
 app.use(function(req,res,next){

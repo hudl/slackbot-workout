@@ -48,41 +48,41 @@
         <nav class="nav" role="navigation">
           <ul class="nav__items ko-list__items">
 
-            <li class="nav__item nav__item--is-active">
-              <a class="nav__link" href="#">
+            <li class="nav__item <% if (city === "boston") { %>nav__item--is-active<% } %>">
+              <a class="nav__link" href="/boston">
                 <span class="nav__name--small">Bos</span>
                 <span class="nav__name--large">Boston</span>
               </a>
             </li>
-
+<!--
             <li class="nav__item">
               <a class="nav__link" href="#">
                 <span class="nav__name--small">Lnk</span>
                 <span class="nav__name--large">Lincoln</span>
               </a>
             </li>
-
-            <li class="nav__item">
-              <a class="nav__link" href="#">
+-->
+            <li class="nav__item <% if (city === "london") { %>nav__item--is-active<% } %>">
+              <a class="nav__link" href="/london">
                 <span class="nav__name--small">Lon</span>
                 <span class="nav__name--large">London</span>
               </a>
             </li>
 
-            <li class="nav__item">
-              <a class="nav__link" href="#">
+            <li class="nav__item <% if (city === "omaha") { %>nav__item--is-active<% } %>">
+              <a class="nav__link" href="/omaha">
                 <span class="nav__name--small">Omh</span>
                 <span class="nav__name--large">Omaha</span>
               </a>
             </li>
-
+<!--
             <li class="nav__item">
               <a class="nav__link" href="#">
                 <span class="nav__name--small">Rmt</span>
                 <span class="nav__name--large">Remotes</span>
               </a>
             </li>
-
+-->
           </ul> <!-- /nav__items -->
       </div> <!-- /nav__container -->
     </header>
@@ -95,76 +95,77 @@
     <div id="main" role="main">
 
 
+    <% if (fullResults !== undefined) { %>
 
-    <!-- Leaderboard -->
-    <!-- ==================================== -->
-    <section class="wrk-section">
-      <div class="l-content">
-        <div class="ko-table__container">
-          <!-- <h3 class="ko-display--h4 ko-spacer--sm--btm">Leaders</h3> -->
-          <table class="ko-table ko-table--bordered ko-table--striped ko-table--hoverable ko-table--rwd js-table--rwd">
-            <colgroup>
-              <col>
-            </colgroup>
-            <colgroup>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col>
-              <col>
-            </colgroup>
-            <colgroup>
-              <col class="ko-table__col--bdr-left ko-table__col--bg">
-            </colgroup>
-            <thead class="ko-table__thead">
-              <tr class="ko-table__tr--thead">
-                <th class="wrk-table__th wrk-table__th--text">User</th>
-                <th class="wrk-table__th">Pushup</th>
-                <th class="wrk-table__th">Plank</th>
-                <th class="wrk-table__th">Wall Sit</th>
-                <th class="wrk-table__th">Chair Dip</th>
-                <th class="wrk-table__th">Calf Raise</th>
-                <th class="wrk-table__th">Jump Jacks</th>
-                <th class="wrk-table__th">Jog</th>
-                <th class="wrk-table__th">Sit Ups</th>
-                <th class="wrk-table__th">Lunges</th>
-                <th class="wrk-table__th">Burpees</th>
-                <th class="wrk-table__th wrk-table__th--total">Comp. Avg.</th>
-              </tr> <!-- /ko-table__tr--thead -->
-            </thead> <!-- /ko-table__thead -->
+      <!-- Leaderboard -->
+      <!-- ==================================== -->
+      <section class="wrk-section">
+        <div class="l-content">
+          <div class="ko-table__container">
+            <!-- <h3 class="ko-display--h4 ko-spacer--sm--btm">Leaders</h3> -->
+            <table class="ko-table ko-table--bordered ko-table--striped ko-table--hoverable ko-table--rwd js-table--rwd">
+              <colgroup>
+                <col>
+              </colgroup>
+              <colgroup>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+              </colgroup>
+              <colgroup>
+                <col class="ko-table__col--bdr-left ko-table__col--bg">
+              </colgroup>
+              <thead class="ko-table__thead">
+                <tr class="ko-table__tr--thead">
+                  <th class="wrk-table__th wrk-table__th--text">User</th>
+                  <th class="wrk-table__th">Pushup</th>
+                  <th class="wrk-table__th">Plank</th>
+                  <th class="wrk-table__th">Wall Sit</th>
+                  <th class="wrk-table__th">Chair Dip</th>
+                  <th class="wrk-table__th">Calf Raise</th>
+                  <th class="wrk-table__th">Jump Jacks</th>
+                  <th class="wrk-table__th">Jog</th>
+                  <th class="wrk-table__th">Sit Ups</th>
+                  <th class="wrk-table__th">Lunges</th>
+                  <th class="wrk-table__th">Burpees</th>
+                  <th class="wrk-table__th wrk-table__th--total">Comp. Avg.</th>
+                </tr> <!-- /ko-table__tr--thead -->
+              </thead> <!-- /ko-table__thead -->
 
-            <tbody class="ko-table__tbody">
-                <% fullResults.forEach(function(row) { %>
-                  <tr class="ko-table__tr">
-                    <td class="wrk-table__td wrk-table__td--text"><%= row["username"] %></td>
-                    <td class="wrk-table__td"><%= row["pushups"] %></td>
-                    <td class="wrk-table__td"><%= row["planks"] %></td>
-                    <td class="wrk-table__td"><%= row["wallsits"] %></td>
-                    <td class="wrk-table__td"><%= row["chairdips"] %></td>
-                    <td class="wrk-table__td"><%= row["calfraises"] %></td>
-                    <td class="wrk-table__td"><%= row["jumpingjacks"] %></td>
-                    <td class="wrk-table__td"><%= row["joginplace"] %></td>
-                    <td class="wrk-table__td"><%= row["situps"] %></td>
-                    <td class="wrk-table__td"><%= row["lunges"] %></td>
-                    <td class="wrk-table__td"><%= row["burpees"] %></td>
-                    <td class="wrk-table__td wrk-table__td--total"><%= row["completion_pct"] %></td>
-                  </tr> <!-- /ko-table__tr -->
-                <% }); %>
-
-
-            </tbody> <!-- /ko-table__tbody -->
-          </table> <!-- /ko-table -->
-        </div> <!-- /ko-table__container -->
+              <tbody class="ko-table__tbody">
+                  <% fullResults.forEach(function(row) { %>
+                    <tr class="ko-table__tr">
+                      <td class="wrk-table__td wrk-table__td--text"><%= row["username"] %></td>
+                      <td class="wrk-table__td"><%= row["pushups"] %></td>
+                      <td class="wrk-table__td"><%= row["planks"] %></td>
+                      <td class="wrk-table__td"><%= row["wallsits"] %></td>
+                      <td class="wrk-table__td"><%= row["chairdips"] %></td>
+                      <td class="wrk-table__td"><%= row["calfraises"] %></td>
+                      <td class="wrk-table__td"><%= row["jumpingjacks"] %></td>
+                      <td class="wrk-table__td"><%= row["joginplace"] %></td>
+                      <td class="wrk-table__td"><%= row["situps"] %></td>
+                      <td class="wrk-table__td"><%= row["lunges"] %></td>
+                      <td class="wrk-table__td"><%= row["burpees"] %></td>
+                      <td class="wrk-table__td wrk-table__td--total"><%= row["completion_pct"] %></td>
+                    </tr> <!-- /ko-table__tr -->
+                  <% }); %>
 
 
-      </div> <!-- /l-content -->
-    </section> <!-- wrk-section -->
+              </tbody> <!-- /ko-table__tbody -->
+            </table> <!-- /ko-table -->
+          </div> <!-- /ko-table__container -->
 
+
+        </div> <!-- /l-content -->
+      </section> <!-- wrk-section -->
+    <% } %>
 
 
     <!-- Superstar + Video list -->
@@ -198,31 +199,31 @@
                 </svg>
             </figure> <!-- /ko-avatar--sm -->
             <div class="card__content--star">
-              <h3 class="card__name">@peteryasi</h3>
+              <h3 class="card__name"><%= fullResults[0]["username"] %></h3>
               <div class="card__mod">
-                <h3 class="card__stat--large">99.5<span class="card__percent">%</span></h3>
+                <h3 class="card__stat--large"><%= fullResults[0]["completion_pct"] %><span class="card__percent">%</span></h3>
                 <h4 class="card__label">Best Completion Rate</h4>
               </div> <!-- /card__mod -->
             </div> <!-- card__content -->
           </div> <!-- /card--star -->
 
 
+          <% if (channelTotals !== undefined) { %>
+            <!-- Office Dashboard -->
+            <div class="dashboard--office l-grid--50">
 
-          <!-- Office Dashboard -->
-          <div class="dashboard--office l-grid--50">
+              <div class="card card--dashboard l-grid__item">
+                <h5 class="card__stat--medium"><%= channelTotals["completion_pct"] %><span class="card__percent">%</span></h5>
+                <p class="card__label">Office Comp. Rate</p>
+              </div> <!-- card -->
 
-            <div class="card card--dashboard l-grid__item">
-              <h5 class="card__stat--medium">45.5<span class="card__percent">%</span></h5>
-              <p class="card__label">Office Comp. Rate</p>
-            </div> <!-- card -->
+              <div class="card card--dashboard l-grid__item">
+                <h5 class="card__stat--medium"><%= channelTotals["total_assigned"] %></h5>
+                <p class="card__label">Total Exercises</p>
+              </div> <!-- card -->
 
-            <div class="card card--dashboard l-grid__item">
-              <h5 class="card__stat--medium">45</h5>
-              <p class="card__label">Total Exercises</p>
-            </div> <!-- card -->
-
-          </div> <!-- /l-grid--50
-
+            </div> <!-- /l-grid--50-->
+          <% } %>
 
 
           <!-- The Goat -->
@@ -250,9 +251,9 @@
                 </svg>
             </figure> <!-- /ko-avatar--sm -->
             <div class="card__content--star">
-              <h3 class="card__name">@peteryasi</h3>
+              <h3 class="card__name"><%= fullResults[fullResults.length - 1]["username"] %></h3>
               <div class="card__mod">
-                <h3 class="card__stat--large">0.2<span class="card__percent">%</span></h3>
+                <h3 class="card__stat--large"><%= fullResults[fullResults.length - 1]["completion_pct"] %><span class="card__percent">%</span></h3>
                 <h4 class="card__label">Worst Completion Rate</h4>
               </div> <!-- /card__mod -->
             </div> <!-- card__content -->
@@ -370,10 +371,3 @@
   </body>
 
 </html>
-
-
-
-
-
-
-
