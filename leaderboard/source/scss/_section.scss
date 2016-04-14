@@ -1,0 +1,22 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Section
+//
+// --------------------------------------------
+// --------------------------------------------
+
+.wrk-section {
+  & + & {
+    margin-top: $spacer-xxlarge;
+  }
+}
+
+
+.wrk-section--bg {
+  background-color: $ui-gray-light;
+  padding-top: $spacer-xxlarge;
+  padding-bottom: $spacer-xxlarge;
+  border-top: 1px solid $ui-gray-medium;
+  border-bottom: 1px solid $ui-gray-medium;
+}

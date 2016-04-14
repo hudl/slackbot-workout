@@ -5,6 +5,13 @@ log*.csv
 log*.csv_DEBUG
 user_cache.save
 
+.sass-cache
+*/node_modules/*
+!*/node_modules/hudl-kickoff-css/
+dist/
+npm-debug.log
+
+
 .idea/.name
 
 .idea/misc.xml
@@ -18,3 +25,4 @@ user_cache.save
 .idea/workspace.xml
 
 *.swp
+

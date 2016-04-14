@@ -1,0 +1,159 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Workout CSS
+//
+// --------------------------------------------
+// --------------------------------------------
+
+
+
+
+// NPM Imports
+// --------------------------------------------
+// Importing Kickoff-css NPM package files
+// npm install hudl-kickoff-css@0.0.1-prerelease.46 --registry http://npm.thorhudl.com --save
+
+@import   '../../node_modules/hudl-kickoff-css/source/scss/variables/var.all';
+@import   '../../node_modules/hudl-kickoff-css/source/scss/mixins/mix.all';
+@import   '../../node_modules/hudl-kickoff-css/source/scss/functions/func.all';
+
+
+
+
+// Local Imports
+// --------------------------------------------
+@import 'variables';
+@import 'layout';
+@import 'section';
+
+@import 'avatar';
+@import 'table';
+@import 'modal';
+@import 'card';
+@import 'header';
+@import 'nav';
+@import 'footer';
+@import 'intrinsic-sizing';
+
+
+
+// Placeholders
+// --------------------------------------------
+%background {
+  @include backgrounder($backgrounder-color);
+  text-align: center;
+  color: $backgrounder-text;
+}
+
+
+
+
+// Helpers
+// --------------------------------------------
+.img--rwd { max-width: 100%; }
+
+body { position: relative; }
+
+
+
+
+// Play Button
+// --------------------------------------------
+.play-btn {
+  position: relative;
+  display: inline-block;
+  margin-left: -30px;
+  float: left;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba($ui-blue-80, 0.6);
+  &:after {
+    position: absolute;
+    content: '';
+    border-top: 5px solid transparent;
+    border-left: 8px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 5px solid transparent;
+    transition: border-color 0.3s ease;
+    top: 50%;
+    margin-top: -5px;
+    left: 50%;
+    margin-left: -3px;
+  }
+
+  // when item is hovered
+  .wrk-video:hover & {
+    &:after { border-left-color: $ui-white; }
+  }
+}
+
+
+
+
+// Icon
+// --------------------------------------------
+.wrk-icon {
+  fill: $ui-gray-20;
+
+  &--down {
+    position: relative;
+    top: 4px;
+  }
+}
+
+
+
+
+// Video
+// --------------------------------------------
+.wrk-video {
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+
+  & + & { margin-top: 0.85rem; }
+
+}
+
+
+
+
+// Dashboard
+// --------------------------------------------
+.dashboard--office {
+  @include clearfix;
+  margin-top: $spacer-large;
+  margin-bottom: $spacer-xlarge;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

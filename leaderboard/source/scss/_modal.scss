@@ -1,0 +1,85 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Modal
+//
+// --------------------------------------------
+// --------------------------------------------
+
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--video {
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    opacity: 0.01;
+    background-color: transparent;
+    transition: opacity 0.8s ease;
+    // When video is playing
+    .video--is-playing & {
+      opacity: 1;
+      visibility: visible;
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+  }
+
+  &__h {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    font-family: $font-display;
+    color: #fff;
+  }
+
+  &__content {
+    @include backgrounder($backgrounder-color);
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px 40px 40px;
+    // background-color: $ui-dark-100;
+    opacity: 0.01;
+    visibility: hidden;
+    transition: opacity 0.8s ease 0.3s, transform 0.3s ease 0.2s;
+    margin: 0 auto;
+    transform: scale(0.5);
+    box-shadow: 0 0 150px rgba(0, 0, 0, 0.3);
+    .video--is-playing & {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+  }
+
+  &__btn {
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: darken($ui-blue-100, 10%);
+    color: #fff;
+    transition: 0.4s background-color ease;
+    &:hover {
+      background-color: darken($ui-blue-100, 5%);
+      text-decoration: none;
+    }
+  }
+
+  &__media { width: 100%; }
+
+}

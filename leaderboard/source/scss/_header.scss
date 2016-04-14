@@ -1,0 +1,25 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Header
+//
+// --------------------------------------------
+// --------------------------------------------
+
+.hero {
+  // @extend %background;
+  margin-bottom: $spacer-xxlarge;
+  // padding: $spacer-xlarge 0;
+}
+
+.hero__inner {
+  @extend %background;
+  padding: $spacer-xlarge 0;
+}
+.hero__h {
+  font-weight: $font-weight-bold;
+}
+
+.hero__h--sub {
+  color: $ui-blue-70;
+}

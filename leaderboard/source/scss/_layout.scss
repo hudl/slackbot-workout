@@ -1,0 +1,59 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Layout
+//
+// --------------------------------------------
+// --------------------------------------------
+
+
+// Content
+// --------------------------------------------
+.l-content {
+  padding: 0 $content-pad;
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+
+
+// One third, two thirds
+// --------------------------------------------
+.l-grid-1-3 {
+  @include clearfix;
+
+  > .l-grid__item {
+    @include mq($bp-grid-1-3-has-layout) {
+      &:first-of-type { width: $grid-1-3-width-sm; float: left; }
+      &:last-of-type { width: $grid-1-3-width-lg; float: right; }
+    }
+  }
+}
+
+
+
+
+// 50/50
+// --------------------------------------------
+.l-grid--50 {
+  > .l-grid__item {
+    margin-top: 1rem;
+
+    @include mq($bp-grid-50-has-layout, $bp-grid-50-no-layout) {
+      margin-top: 0;
+      width: $grid-50-width;
+      &:first-of-type { float: left; }
+      &:last-of-type { float: right; }
+    }
+
+    @include mq($bp-grid-50-has-layout-lg) {
+      margin-top: 0;
+      width: $grid-50-width;
+      &:first-of-type { float: left; }
+      &:last-of-type { float: right; }
+    }
+  }
+}

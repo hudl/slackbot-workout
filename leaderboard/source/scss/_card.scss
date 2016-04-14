@@ -1,0 +1,103 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Card
+//
+// --------------------------------------------
+// --------------------------------------------
+
+.card {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  background-color: #fff;
+}
+
+
+.card--video {
+  padding: $spacer-xsmall;
+  padding-left: 40px;
+  color: $ui-text-medium;
+}
+
+.card--dashboard {
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  padding: 0.75rem;
+}
+
+.card--star {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  & + & { margin-top: $spacer-xxlarge; }
+}
+
+.card--goat {
+  .card__stat--large { color: red; }
+}
+
+
+.card__h--small {
+  border-right: $bdr-1;
+  margin-right: $spacer-xxsmall;
+  padding-right: $spacer-xxsmall;
+  font-weight: $font-weight-bold;
+  color: $ui-text-dark;
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+}
+
+
+.card__content--star {
+  padding-top: $spacer-small;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.card__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $ui-text-light;
+}
+
+.card__name {
+  font-size: 16px;
+  font-weight: $font-weight-bold;
+}
+
+.card__mod {
+  // margin-top: $spacer-small;
+}
+
+.card__stat--large {
+  font-size: 45px;
+  letter-spacing: -2px;
+  font-family: $font-brand;
+}
+
+.card__stat--medium {
+  font-size: 30px;
+  letter-spacing: -2px;
+  font-family: $font-brand;
+}
+
+.card__percent {
+  font-size: 80%;
+  padding-left: 3px;
+}
+
+.card__group {
+  @include clearfix;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid $ui-gray-medium;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  > .card__mod--half {
+    &:first-of-type { float: left; }
+    &:last-of-type { float: right; }
+  }
+}

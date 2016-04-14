@@ -1,0 +1,38 @@
+// --------------------------------------------
+// --------------------------------------------
+//
+// Table
+//
+// --------------------------------------------
+// --------------------------------------------
+
+.wrk-table__th {
+  font-size: $th-font-size;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center !important;
+
+  &--text { text-align: left !important; }
+}
+
+
+.wrk-table__td {
+  text-align: center;
+
+  &--text { text-align: left; }
+}
+
+
+.wrk-table__th {
+  height: $th-height;
+}
+
+
+.wrk-table__th--total {
+  font-weight: $font-weight-bold;
+}
+
+
+.wrk-table__td--total {
+  color: $td-highlight;
+}
