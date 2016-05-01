@@ -540,6 +540,7 @@ def listenForReactions(bot):
 def removeExercises(bot):
     for exercise in EXERCISES_FOR_DAY:
         EXERCISES_FOR_DAY.remove(exercise)
+    del EXERCISES_FOR_DAY[:]
 
 def isReminderInReminderList(userid, exercise):
     for reminder in exercise.snoozed_users:
@@ -548,15 +549,24 @@ def isReminderInReminderList(userid, exercise):
     return False
 
 def remindPeopleForIncompleteExercisesAtEoD(bot):
+    reminderMessages = {}
+
     for exercise in EXERCISES_FOR_DAY:
         for user in exercise.users:
             if user not in exercise.completed_users and user not in exercise.refused_users:
-                reminderMessage = user.getUserHandle() + " still needs to do " + str(exercise.exercise_reps) + " " + str(exercise.exercise["units"]) + " " + exercise.exercise["name"]
-                if bot.debug:
-                    print reminderMessage
+            	if user.getUserHandle() in reminderMessages:
+                	reminderMessage = reminderMessages[user.getUserHandle()]
+                	reminderMessage += " and " + str(exercise.exercise_reps) + " " + str(exercise.exercise["units"]) + " " + exercise.exercise["name"]
+                	reminderMessages[user.getUserHandle()] = reminderMessage
                 else:
-                    requests.post(bot.post_message_URL + "&text=" + reminderMessage)
-
+                	reminderMessage = user.getUserHandle() + " still needs to do " + str(exercise.exercise_reps) + " " + str(exercise.exercise["units"]) + " " + exercise.exercise["name"]
+                	reminderMessages[user.getUserHandle()] = reminderMessage
+    if bot.debug:
+        for messageKey in reminderMessages:
+            print reminderMessages[messageKey]
+    else:
+        for messageKey in reminderMessages:
+            requests.post(bot.post_message_URL + "&text=" + reminderMessages[messageKey])
 
 def remindTheSleepies(bot):
     for exercise in EXERCISES_FOR_DAY:
