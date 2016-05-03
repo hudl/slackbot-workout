@@ -190,6 +190,7 @@
         <div class="l-grid__item">
           <h3 class="ko-display--h5 ko-spacer--large--btm">Dashboard</h3>
 
+        <% if (fullResults[0]) { %>
           <!-- The Star -->
           <div class="card card--star">
             <figure class="ko-avatar--med wrk-avatar wrk-avatar--star">
@@ -221,6 +222,7 @@
               </div> <!-- /card__mod -->
             </div> <!-- card__content -->
           </div> <!-- /card--star -->
+        <% } %>
 
 
           <% if (channelTotals !== undefined) { %>
@@ -241,6 +243,7 @@
           <% } %>
 
 
+        <% if (fullResults[0]) { %>
           <!-- The Goat -->
           <div class="card card--star card--goat">
             <figure class="ko-avatar--med wrk-avatar wrk-avatar--star">
@@ -273,6 +276,7 @@
               </div> <!-- /card__mod -->
             </div> <!-- card__content -->
           </div> <!-- /card--star -->
+        <% } %>
 
         </div> <!-- /l-grid__item -->
 
