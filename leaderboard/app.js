@@ -10,12 +10,7 @@ var routes = require('./routes/index');
 var app = express();
 
 var pgp = require('pg-promise')({});
-var cn = {
-    host: 'localhost',
-    port: 5432,
-    database: 'slackbotworkout',
-};
-var db = pgp(cn);
+var db = pgp("postgres://ubuntu:@localhost:5432/slackbotworkout");
 
 // Make our db accessible to our router
 app.use(function(req,res,next){

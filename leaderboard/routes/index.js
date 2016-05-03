@@ -88,7 +88,7 @@ var getData = function(req, res, next) {
             });
       })
       .catch(function (error) {
-          console.error("caught error: " + error);
+          console.error("caught error: " + JSON.stringify(error));
       });
 };
 
