@@ -43,7 +43,7 @@ router.get('/', function(req, res) {
     });
   })
   .catch(error => {
-    console.error("Caught error: " + error);
+    console.error("Caught error: " + JSON.stringify(error));
   });
 
 });
