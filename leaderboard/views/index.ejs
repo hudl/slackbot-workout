@@ -61,14 +61,18 @@
                 <span class="nav__name--large">Boston</span>
               </a>
             </li>
-<!--
-            <li class="nav__item">
-              <a class="nav__link" href="#">
-                <span class="nav__name--small">Lnk</span>
-                <span class="nav__name--large">Lincoln</span>
+            <li class="nav__item <% if (city === "lincolneast") { %>nav__item--is-active<% } %>">
+              <a class="nav__link" href="/lincolneast">
+                <span class="nav__name--small">LnkE</span>
+                <span class="nav__name--large">Lincoln East</span>
               </a>
             </li>
--->
+            <li class="nav__item <% if (city === "lincolnwest") { %>nav__item--is-active<% } %>">
+              <a class="nav__link" href="/lincolnwest">
+                <span class="nav__name--small">LnkW</span>
+                <span class="nav__name--large">Lincoln West</span>
+              </a>
+            </li>
             <li class="nav__item <% if (city === "london") { %>nav__item--is-active<% } %>">
               <a class="nav__link" href="/london">
                 <span class="nav__name--small">Lon</span>
@@ -82,14 +86,18 @@
                 <span class="nav__name--large">Omaha</span>
               </a>
             </li>
-<!--
-            <li class="nav__item">
-              <a class="nav__link" href="#">
+            <li class="nav__item <% if (city === "remote") { %>nav__item--is-active<% } %>">
+              <a class="nav__link" href="/remote">
                 <span class="nav__name--small">Rmt</span>
-                <span class="nav__name--large">Remotes</span>
+                <span class="nav__name--large">Remote</span>
               </a>
             </li>
--->
+            <li class="nav__item <% if (city === "sydney") { %>nav__item--is-active<% } %>">
+              <a class="nav__link" href="/sydney">
+                <span class="nav__name--small">Syd</span>
+                <span class="nav__name--large">Sydney</span>
+              </a>
+            </li>
           </ul> <!-- /nav__items -->
       </div> <!-- /nav__container -->
     </header>
