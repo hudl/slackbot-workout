@@ -6,6 +6,10 @@ const channels = {
   'london': 'londonfitness',
   'boston': 'bostonofficeworkout',
   'omaha': 'omahafitness',
+  'remote': 'remotefitness',
+  'sydney': 'sydneyfitness',
+  'lincolneast': 'lincolneastfitness',
+  'lincolnwest': 'lincolnwestfitness',
 };
 
 router.get('/', function(req, res) {
