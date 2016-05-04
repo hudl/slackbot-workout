@@ -21,7 +21,7 @@ def isProcessRunning( city ):
     else:
         return True
 
-cities = ['boston', 'omaha', 'london']
+cities = ['boston', 'omaha', 'london', 'lincolneast', 'lincolnwest', 'remote', 'sydney']
 
 for city in cities:
     if not isProcessRunning(city):
