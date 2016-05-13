@@ -419,6 +419,7 @@ def initiateThrowdown(bot, all_employees, message):
 
     active_users = fetchActiveUsers(bot, all_employees)
     challengees = []
+    challenger = None
 
     for user in active_users:
         if user.id == challengerId:
@@ -428,7 +429,7 @@ def initiateThrowdown(bot, all_employees, message):
     exercise = findExerciseInText(bot, text)
     exercise_reps = findIntInText(bot, words)
 
-    if challenger.has_challenged_today == True:
+    if challenger is not None and challenger.has_challenged_today == True:
         already_challenged_text = 'You can only give out a challenge once a day ' + challenger.real_name
         requests.post(bot.post_message_URL + "&text=" + already_challenged_text)
         return
