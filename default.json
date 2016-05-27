@@ -83,12 +83,12 @@
     },
     {
       "id": 6,
-      "name": "jog in place",
+      "name": "high knees",
       "minReps": 20,
       "maxReps": 30,
       "units": "second",
-      "tutorial": "https://www.youtube.com/watch?v=B6nFhcI4tgI",
-      "listenNames": "jog in place"
+      "tutorial": "https://www.youtube.com/watch?v=EpKS_d2wuco",
+      "listenNames": "high knees"
     },
     {
       "id": 7,
