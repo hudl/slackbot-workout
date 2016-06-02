@@ -278,7 +278,21 @@ def assignExercise(bot, exercise, all_employees):
     winners = []
     # EVERYBODY
 
-    if len(active_users) > bot.num_people_per_callout:
+    num_active_users = len(active_users)
+    if num_active_users < 3:
+        num_people_to_callout = 0
+    elif num_active_users < 6:
+        num_people_to_callout = 1
+    elif num_active_users < 10:
+        num_people_to_callout = 2
+    elif num_active_users < 20:
+        num_people_to_callout = 3
+    else:
+        num_people_to_callout = 5
+
+    print "num active users: " + str(num_active_users) + ", choosing " + str(num_people_to_callout) + " people"
+
+    if num_people_to_callout > 0:
 
         if random.random() < bot.group_callout_chance:
             winner_announcement += "@channel!"
@@ -288,10 +302,10 @@ def assignExercise(bot, exercise, all_employees):
                 user.addExercise(exercise, exercise_reps)
                 winners.append(user)
         else:
-            for i in range(bot.num_people_per_callout):
+            for i in range(num_people_to_callout):
                 winners.append(selectUser(bot, exercise, all_employees, winners, active_users))
 
-            for i in range(bot.num_people_per_callout):
+            for i in range(num_people_to_callout):
                 winner_announcement += str(winners[i].getUserHandle())
                 if i == bot.num_people_per_callout - 2:
                     winner_announcement += ", and "
