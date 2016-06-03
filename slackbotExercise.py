@@ -307,9 +307,9 @@ def assignExercise(bot, exercise, all_employees):
 
             for i in range(num_people_to_callout):
                 winner_announcement += str(winners[i].getUserHandle())
-                if i == bot.num_people_per_callout - 2:
+                if i == num_people_to_callout - 2:
                     winner_announcement += ", and "
-                elif i == bot.num_people_per_callout - 1:
+                elif i == num_people_to_callout - 1:
                     winner_announcement += "!"
                 else:
                     winner_announcement += ", "
